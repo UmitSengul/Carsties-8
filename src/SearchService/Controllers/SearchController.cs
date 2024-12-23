@@ -22,18 +22,19 @@ public class SearchController : ControllerBase
 
         query = searchParams.OrderBy switch
         {
-            "make" => query.Sort(x => x.Ascending(x => x.Make)),
+            "make" => query.Sort(x => x.Ascending(x => x.Make))
+                  .Sort(x => x.Ascending(a => a.Model)),
             "new" => query.Sort(x => x.Descending(x => x.CreatedAt)),
             _ => query.Sort(x => x.Ascending(x => x.AuctionEnd))
         };
-        
+
         if (!string.IsNullOrEmpty(searchParams.FilterBy))
         {
             query = searchParams.FilterBy switch
             {
                 "finished" => query.Match(x => x.AuctionEnd < DateTime.UtcNow),
                 "endingSoon" => query.Match(x =>
-                    x.AuctionEnd < DateTime.UtcNow.AddHours(6) 
+                    x.AuctionEnd < DateTime.UtcNow.AddHours(6)
                         && x.AuctionEnd > DateTime.UtcNow),
                 _ => query.Match(x => x.AuctionEnd > DateTime.UtcNow) // live
             };
@@ -54,7 +55,7 @@ public class SearchController : ControllerBase
 
         var result = await query.ExecuteAsync();
 
-        return Ok(new  
+        return Ok(new
         {
             results = result.Results,
             pageCount = result.PageCount,
