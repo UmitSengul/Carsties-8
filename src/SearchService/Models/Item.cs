@@ -1,6 +1,8 @@
 using System;
 using MongoDB.Entities;
+
 namespace SearchService.Models;
+
 public class Item : Entity
 {
     public int ReservePrice { get; set; }

@@ -1,5 +1,7 @@
 using System;
+
 namespace Contracts;
+
 public class AuctionUpdated
 {
     public required string Id { get; set; }

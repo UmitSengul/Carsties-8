@@ -1,6 +1,8 @@
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
+
 namespace AuctionService.Entities;
+
 [Table("Items")]
 public class Item
 {
@@ -11,6 +13,7 @@ public class Item
     public required string Color { get; set; }
     public int Mileage { get; set; }
     public required string ImageUrl { get; set; }
+
     // nav properties
     public Auction Auction { get; set; } = null!;
     public Guid AuctionId { get; set; }

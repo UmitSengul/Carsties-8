@@ -1,5 +1,7 @@
 using System;
+
 namespace BiddingService.DTOs;
+
 public class BidDto
 {
     public required string Id { get; set; }

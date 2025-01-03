@@ -1,6 +1,8 @@
 using System;
 using MongoDB.Entities;
+
 namespace BiddingService.Models;
+
 public class Auction : Entity
 {
     public DateTime AuctionEnd { get; set; }

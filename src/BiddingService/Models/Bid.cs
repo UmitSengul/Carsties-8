@@ -1,6 +1,8 @@
 using System;
 using MongoDB.Entities;
+
 namespace BiddingService.Models;
+
 public class Bid : Entity
 {
     public required string AuctionId { get; set; }

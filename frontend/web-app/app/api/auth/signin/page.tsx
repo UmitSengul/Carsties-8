@@ -1,5 +1,6 @@
 import EmptyFilter from '@/app/conponents/EmptyFilter'
 import React from 'react'
+
 export default function SignIn({searchParams}: {searchParams: {callbackUrl: string}}) {
   return (
     <EmptyFilter 

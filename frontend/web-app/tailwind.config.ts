@@ -1,8 +1,7 @@
 import type { Config } from "tailwindcss";
-import flowbite from "flowbite-react/tailwind"
+import flowbite from 'flowbite-react/tailwind';
 
-
-export default {
+const config: Config = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -11,11 +10,15 @@ export default {
   ],
   theme: {
     extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+      backgroundImage: {
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+        "gradient-conic":
+          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
     },
   },
-  plugins: [flowbite.plugin()],
-} satisfies Config;
+  plugins: [
+    flowbite.plugin()
+  ],
+};
+export default config;

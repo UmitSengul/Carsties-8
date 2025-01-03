@@ -1,5 +1,7 @@
 using System;
+
 namespace Contracts;
+
 public class AuctionCreated
 {
     public Guid Id { get; set; }
